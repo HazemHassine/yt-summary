@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Python Decorators and Metaclasses for Better Code</title>
+<style>
+body {
+  font-family: "Arial", sans-serif; /* Clear and modern font */
+  line-height: 1.6; /* Easy to read line spacing */
+  color: #333; /* Comfortable text color */
+  background-color: #f9f9f9; /* Light background */
+  margin: 0; /* Reset default margins */
+  padding: 0;
+}
+
+/* Center and Add Margins */
+.container {
+  max-width: 800px; /* Keeps content at a readable width */
+  margin: 2rem auto; /* Center content and add vertical spacing */
+  padding: 1rem; /* Add padding inside the container */
+  background: #ffffff; /* White background for content */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for focus */
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #222; /* Slightly darker headings */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+/* Paragraphs */
+p {
+  margin: 0.5rem 0; /* Space between paragraphs */
+}
+
+/* Links */
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Code Blocks */
+pre {
+  background: #f4f4f4;
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto; /* Handles long lines of code */
+}
+
+code {
+  background: #f4f4f4;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: "Courier New", Courier, monospace; /* Monospace for code */
+  font-size: 0.95em;
+}
+
+/* Lists */
+ul,
+ol {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+li {
+  margin: 0.5rem 0;
+}
+
+/* Blockquote */
+blockquote {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f1f1f1;
+  border-left: 4px solid #ccc;
+  font-style: italic;
+  color: #555;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th {
+  background: #f2f2f2;
+  font-weight: bold;
+}
+    </style>
+    <a href="https://www.youtube.com/watch?v=oVvTmcwxvmc">https://www.youtube.com/watch?v=oVvTmcwxvmc</a>
+</head>
+<body>
+  <div class="container">
+    <h1>Advanced Python Decorators and Metaclasses for Better Code</h1>
+    <span>2024-12-02T19:36:39.087Z</span>
+    <div><h1>Video Overview</h1>
+
+<p>The video discusses the advanced concepts of Python decorators and metaclasses, explaining how they can be used to write more efficient and organized code. The speaker emphasizes the importance of understanding these concepts to take your Python skills to the next level.</p>
+
+<h2>What are Decorators?</h2>
+
+<p>Decorators are a special type of function in Python that allows you to modify or extend the behavior of another function without changing its source code. They are used to wrap another function to add additional functionality to the original function.</p>
+
+<p>The speaker explains that decorators are useful for:</p>
+
+<ul><li>Logging: adding a decorator to a function can help you log important information such as execution time or errors.</li><li>Authentication: you can use a decorator to authenticate users before allowing them to access certain functions.</li><li>Caching: decorators can be used to cache the results of expensive function calls to improve performance.</li></ul>
+
+<h2>How to Implement Decorators?</h2>
+
+<p>The speaker explains that there are two types of decorators: function decorators and class decorators.</p>
+
+<ul><li><strong>Function Decorators:</strong> <ul><li>These are the most common type of decorators and are used to decorate functions.</li><li>To define a function decorator, you need to create a function that takes another function as an argument and returns a new function that &quot;wraps&quot; the original function.</li><li>The syntax for function decorators is <code>@decorator_name</code>.</li></ul></li></ul>
+
+<p>Example:
+<code></code>`python
+def my_decorator(func):
+    def wrapper():
+        print(&quot;Before executing func&quot;)
+        func()
+        print(&quot;After executing func&quot;)
+    return wrapper</p>
+
+<p>@my<em>decorator
+def say</em>hello():
+    print(&quot;Hello!&quot;)
+<code></code><code>
+In this example, the </code>my<em>decorator<code> function takes the </code>say</em>hello<code> function as an argument, adds some additional code before and after the </code>say_hello` function, and then returns the new function.</p>
+
+<ul><li><strong>Class Decorators:</strong> <ul><li>These are used to decorate classes.</li><li>Class decorators work in the same way as function decorators, but they are used to modify or extend the behavior of a class.</li><li>To define a class decorator, you need to create a function that takes a class as an argument and returns a new class.</li></ul></li></ul>
+
+<p>Example:
+<code></code>`python
+def my<em>class</em>decorator(cls):
+    class WrapperClass(cls):
+        def <strong>init</strong>(self, <em>args, kwargs):
+            super().<strong>init</strong>(</em>args, kwargs)
+            print(&quot;Initializing WrapperClass&quot;)
+    return WrapperClass</p>
+
+<p>@my<em>class</em>decorator
+class MyClass:
+    def <strong>init</strong>(self, name, age):
+        self.name = name
+        self.age = age
+<code></code><code>
+In this example, the </code>my<em>class</em>decorator<code> function takes the </code>MyClass<code> class as an argument, adds some additional code to the </code><strong>init</strong><code> method of </code>MyClass`, and then returns the new class.</p>
+
+<h2>What are Metaclasses?</h2>
+
+<p>Metaclasses are classes whose instances are classes. They are used to modify or extend the behavior of classes.</p>
+
+<ul><li><strong>Use cases for metaclasses:</strong> <ul><li>Metaclasses are useful when you want to customize class creation, for example, by automatically adding methods or attributes to a class.</li><li>They are also useful for enforcing coding standards, for example, by automatically adding docstrings to a class.</li></ul></li></ul>
+
+<p>Example:
+<code></code>`python
+def add_docstring(cls):
+    def doc(cls):
+        print(f&quot;Docstring for {cls.<strong>name</strong>}&quot;)
+        return cls
+    return doc</p>
+
+<p>class Meta(type):
+    def <strong>new</strong>(meta, name, bases, namespace):
+        return add_docstring(type.<strong>new</strong>(meta, name, bases, namespace))</p>
+
+<p>class MyClass(metaclass=Meta):
+    pass
+<code></code>`
+<strong>Best Practices and Common Pitfalls</strong></p>
+
+<hr/>
+
+<p>The speaker emphasizes the importance of using decorators and metaclasses judiciously and with a clear understanding of how they work.</p>
+
+<ul><li><strong>Use them sparingly:</strong> <ul><li>Only use decorators and metaclasses when there is a clear need for them.</li><li>Overusing them can make your code hard to understand and debug.</li></ul></li><li><strong>Test them thoroughly:</strong> <ul><li>Decorators and metaclasses can be tricky to debug, so make sure you test them thoroughly to avoid unexpected behavior.</li></ul></li></ul>
+
+<h1>Conclusion</h1>
+
+<p>The video concludes by summarizing the key points about decorators and metaclasses in Python, emphasizing their importance in writing efficient and organized code.</p>
+
+<p>By mastering the use of decorators and metaclasses, you can take your Python skills to the next level and write more powerful and flexible code. However, it&#39;s essential to use them judiciously and follow best practices to avoid common pitfalls.</p></div>
+  </div>
+</body>
+</html>

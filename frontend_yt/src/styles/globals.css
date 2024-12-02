@@ -1,0 +1,47 @@
+@keyframes gradient-x {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  .animate-gradient-x {
+    animation: gradient-x 15s ease infinite;
+    background-size: 400% 400%;
+  }
+  
+  .wave-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.3;
+    z-index: 0;
+    background-image: 
+      repeating-radial-gradient(circle at 0 0, transparent 0, #ffffff10 10px),
+      repeating-linear-gradient(#ffffff10, #ffffff10 10px, transparent 10px, transparent 20px);
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  
+  /* Add this to the end of the file */
+*,body,html {
+    cursor: none;
+  }
+  
+  

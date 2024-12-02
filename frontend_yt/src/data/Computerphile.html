@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./markdown.css">
+    <style>
+    /* General Markdown Styles */
+body {
+  font-family: "Arial", sans-serif; /* Clear and modern font */
+  line-height: 1.6; /* Easy to read line spacing */
+  color: #333; /* Comfortable text color */
+  background-color: #f9f9f9; /* Light background */
+  margin: 0; /* Reset default margins */
+  padding: 0;
+}
+
+/* Center and Add Margins */
+.container {
+  max-width: 800px; /* Keeps content at a readable width */
+  margin: 2rem auto; /* Center content and add vertical spacing */
+  padding: 1rem; /* Add padding inside the container */
+  background: #ffffff; /* White background for content */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for focus */
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #222; /* Slightly darker headings */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+/* Paragraphs */
+p {
+  margin: 0.5rem 0; /* Space between paragraphs */
+}
+
+/* Links */
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Code Blocks */
+pre {
+  background: #f4f4f4;
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto; /* Handles long lines of code */
+}
+
+code {
+  background: #f4f4f4;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: "Courier New", Courier, monospace; /* Monospace for code */
+  font-size: 0.95em;
+}
+
+/* Lists */
+ul,
+ol {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+li {
+  margin: 0.5rem 0;
+}
+
+/* Blockquote */
+blockquote {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f1f1f1;
+  border-left: 4px solid #ccc;
+  font-style: italic;
+  color: #555;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th {
+  background: #f2f2f2;
+  font-weight: bold;
+}
+    </style>
+    <title>Computerphile</title>
+</head>
+<body>
+    <div class="container"><h1>Computerphile</h1><p>Internationalization of Software </p>
+<p><strong>Overview</strong>
+Internationalization is an essential aspect of software design that involves adapting a product to meet the language, cultural, and technical requirements of various countries. In this YouTube video, the speaker highlights the challenges encountered while designing a social network for English-speaking users and later expanding it to accommodate other languages and cultures.</p>
+<p><strong>Character Encoding and Keyboard Support</strong>
+One of the primary challenges is character encoding. When a user named Chloë joins the network, the umlaut above her 'e' becomes a problem. Initially, the solution involves adding more accent characters. However, this poses an issue with Icelandic users who use a different character set, including the letter Eth (þ). The speaker emphasizes that Unicode has approximately 30,000 characters, including Chinese, Japanese, and Korean text, which must be considered when designing the software.</p>
+<p><strong>Text Length and Variable Button Size</strong>
+Another challenge is variable text length. A 'like' button in English may not be adequate for languages that require a longer phrase, such as 'J'aime' in French. The speaker suggests designing a system where text lengths can change and introducing a drop-in system for variables, making it easier for translators to accommodate different languages.</p>
+<p><strong>Language-Specific Grammar Rules and Case Sensitivity</strong>
+Language-specific grammar rules pose significant challenges. Italian and other languages require knowing the user's gender to form proper sentences. Non-gender-binary users encounter difficulties with these languages, and translators often find it challenging to accommodate these requirements.</p>
+<p>Other complications include:</p>
+<ul>
+<li>French: Using a singular or plural form of a word, depending on the quantity (e.g., 'zero likes' vs. 'one like')</li>
+<li>Polish and other languages: Having different grammatical forms for one, two, or many items</li>
+<li>Languages like Icelandic and Hungarian: Requiring name form adaptations based on the context of the sentence</li>
+</ul>
+<p><strong>Right-to-Left Languages and Text Merging</strong>
+Languages like Arabic, which go from right to left, introduce complications in design and word cropping. Letter forms in Arabic change when positioned with certain letters, and truncating a word is difficult. Arabic translators suggest text handling techniques to accommodate their script properties.</p>
+<p><strong>Date and Time Formats</strong>
+Date and time formats also require consideration due to differences in English, European, and other cultures. Examples include:</p>
+<ul>
+<li>Months before or after the day</li>
+<li>Ending days of the week differently</li>
+<li>AM/PM formats contrasting between countries</li>
+<li>Numbers and numerical separation (e.g., floating-point numbers)</li>
+</ul>
+<p><strong>Numbers and Numbering Systems</strong>
+Number format disparities affect European and American cultures, while Indian translators reveal an entirely distinct Indian numbering system based on lakhs and crores. Understanding these complex differences complicates software development, requiring language customization for localized releases.</p>
+<p><strong>Conclusion</strong>
+Thus, internationalization brings various design difficulties when adapting to language subtleties, numerical patterns, grammar, and timezone features in a global audience-facing system. Although incorporating foreign timezone settings or 'black box' code isn't sufficient, studying popular languages and translations for application functionality that fosters user adaptability for enhanced usability on worldwide markets can solve some practical application headaches the development team needs to face with these worldwide internet differences.</p>
+<p>Software designers can learn a lot by diving deeper on various internationalization issues their chosen country audiences demand from daily software utilization. Also if more software translators create video documents guiding their preferred choices when on local coding duties an expansion into cross code translation knowledge expands is feasible leading much quick resolving of common coding languages translating duties worldwide rather many years for similar company working duties.</p>
+<p><strong>Note on Possible Next Steps</strong> </p>
+<p>There are lots of different content existing outside to study for someone aiming the full benefits of their user base with translation related usability adaptations.
+From this Computerphile video as an example video we simply take the YouTube’s top text summary this video makes; to prepare you good base more easily read a content for language programming.
+If not knowing some types of programming of at the time then your programming career improves most easily for all newbies. ( https://en.wikipedia.org/wiki/YouTube_%20Computerphile )
+However most coding beginners also think of English being the global tongue  speaking of the internet, while doing a learning career on YouTube.</p></div>
+</body>
+</html>
