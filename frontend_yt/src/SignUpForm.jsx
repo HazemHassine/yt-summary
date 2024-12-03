@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAuth } from "./hooks/useAuth";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "./lib/firebase";
+import { v4 as uuidv4 } from "uuid";
 
 export default function SignUpForm({ onClose }) {
   const [email, setEmail] = useState("");
@@ -19,12 +20,25 @@ export default function SignUpForm({ onClose }) {
       const user = userCredential.user;
 
       // Create a user document in Firestore
-      await setDoc(doc(db, "users", user.uid), {
+      const userRef = doc(db, "users", user.uid); // Reference to the user document
+      await setDoc(userRef, {
         email: user.email,
         name,
         bio,
         createdAt: new Date().toISOString(),
       });
+      const articleId = uuidv4();
+
+      const docPlaceholder = {
+        createdAt: new Date().toISOString(),
+        title: "Your first article",
+        content: "#TODO add this later",
+        description:
+          "This is where a short description of the article will be seen. lorem du fact de la description of the article will be shown",
+      };
+
+      // Create a document with articleId within the "articles" collection
+      await setDoc(doc(userRef, "articles", articleId), docPlaceholder);
 
       onClose();
     } catch (error) {
