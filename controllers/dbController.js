@@ -8,7 +8,7 @@ const {getHtmlFilesData} = require("../utils/filesUtils");
 // Define the API endpoint
 module.exports.htmlFilesList =  (req, res) => {
     const directoryPath = path.join(__dirname, "..", "public"); // Replace with your actual directory
-    console.log(__dirname + "zeiiiiiiiiiiii")
+    console.log(__dirname)
     const data = getHtmlFilesData(directoryPath);
     res.json(data);
 };
@@ -16,7 +16,7 @@ module.exports.htmlFilesList =  (req, res) => {
 module.exports.fileName = (req, res) => {
     const fileName = req.params.fileName;
     const filePath = path.join(__dirname,"..",  "public", fileName);
-    console.log(filePath+ "azeaze")
+    console.log(filePath)
     // Check if the file exists and is an HTML file
     if (fs.existsSync(filePath) && path.extname(fileName).toLowerCase() === '.html') {
         res.sendFile(filePath);

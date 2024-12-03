@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CheckCheckIcon, X } from "lucide-react";
 
-export default function SummarizeWindow({ reloader, onClose }) {
+export default function SummarizeWindow({ onClose }) {
   const [videoUrl, setVideoUrl] = useState("");
   const [isSummarizing, setIsSummarizing] = useState(false);
   const [summaryFilePath, setSummaryFilePath] = useState(null);
@@ -19,7 +19,6 @@ export default function SummarizeWindow({ reloader, onClose }) {
     setIsSummarizing(true);
     setError("");
     setSummaryFilePath(null);
-    reloader()
     try {
       const response = await fetch("youtube/process", {
         method: "POST",
@@ -34,7 +33,7 @@ export default function SummarizeWindow({ reloader, onClose }) {
       }
 
       const data = await response.json();
-      setSummaryFilePath(data.filePath.split("/").pop()); // File path from server response
+      setSummaryFilePath("db/"+ data.filePath.split("/").pop()); // File path from server response
     } catch (err) {
       console.log(err);
       setError(

@@ -2,7 +2,11 @@
 const fs = require('fs');
 const markdown = require('markdown').markdown;
 const path = require('path');
-const {summarizeText, youtubeUrlToId, htmlTemplate} = require('../utils/ytbUtils');
+const {summarizeText, youtubeUrlToId, htmlTemplate, cleanTranscript} = require('../utils/ytbUtils');
+
+// rewrite this with require
+const { YoutubeTranscript } = require('youtube-transcript');
+
 
 
 
@@ -29,10 +33,10 @@ module.exports.ytProcess = async (req, res) => {
         }
 
         // Fetch transcript (mocked; replace with actual YouTube API integration)
-        const transcript = "Mocked transcript text for the video..."; // Replace with actual API call
-
+        const transcript = await YoutubeTranscript.fetchTranscript(url, {lang: "en"});
+        
         // Summarize transcript
-        const summary = await summarizeText([transcript]);
+        const summary = await summarizeText([cleanTranscript(transcript)]);
 
         // Extract title from the summary
         const [title, ...rest] = summary.split("\n");

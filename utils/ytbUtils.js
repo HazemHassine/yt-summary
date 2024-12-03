@@ -154,4 +154,20 @@ th {
 </body>
 </html>`;
 
-module.exports = {summarizeText, youtubeUrlToId, htmlTemplate};
+// Import 'he' library for decoding HTML entities: npm install he
+const he = require('he');
+/**
+ * Cleans and concatenates transcript responses into a single string.
+ * @param {Array} transcripts - Array of transcript objects with `text` properties.
+ * @returns {string} - The cleaned and concatenated transcript.
+ */
+const cleanTranscript = (transcripts) =>{
+    return transcripts
+        .map(transcript => he.decode(transcript.text)) // Decode HTML entities
+        .join(' ') // Join with a space between texts
+        .replace(/\s+/g, ' ') // Replace multiple spaces with a single space
+        .trim(); // Remove leading/trailing spaces
+}
+
+
+module.exports = {summarizeText, youtubeUrlToId, htmlTemplate, cleanTranscript};
