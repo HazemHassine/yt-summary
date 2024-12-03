@@ -1,38 +1,67 @@
-import React, { useState } from 'react'
-import { useAuth } from './hooks/useAuth'
-import { doc, setDoc } from 'firebase/firestore'
-import { db } from './lib/firebase'
+import React, { useState } from "react";
+import { useAuth } from "./hooks/useAuth";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "./lib/firebase";
 
 export default function SignUpForm({ onClose }) {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState(null)
-  const { signUp } = useAuth()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [bio, setBio] = useState("");
+  const [error, setError] = useState(null);
+  const { signUp } = useAuth();
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      const userCredential = await signUp(email, password)
-      const user = userCredential.user
-      
-      // Create a user document in Firestore
-      await setDoc(doc(db, 'users', user.uid), {
-        email: user.email,
-        createdAt: new Date().toISOString()
-      })
+      const userCredential = await signUp(email, password);
+      console.log("userCredential", userCredential);
+      const user = userCredential.user;
 
-      onClose()
+      // Create a user document in Firestore
+      await setDoc(doc(db, "users", user.uid), {
+        email: user.email,
+        name,
+        bio,
+        createdAt: new Date().toISOString(),
+      });
+
+      onClose();
     } catch (error) {
-      setError(error.message)
+      // ignote this error
+      if (error?.message === "undefined has no properties") {
+        onClose();
+      } else {
+        setError(error.message);
+      }
     }
-  }
+  };
 
   return (
     <div className="bg-white p-8 rounded-lg shadow-xl w-96">
       <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
+          <label
+            htmlFor="name"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="email"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
             Email
           </label>
           <input
@@ -44,8 +73,25 @@ export default function SignUpForm({ onClose }) {
             required
           />
         </div>
+        <div className="mb-4">
+          <label
+            htmlFor="bio"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
+            Bio (optional)
+          </label>
+          <textarea
+            id="bio"
+            value={bio}
+            onChange={(e) => setBio(e.target.value)}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
         <div className="mb-6">
-          <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
+          <label
+            htmlFor="password"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
             Password
           </label>
           <input
@@ -75,6 +121,5 @@ export default function SignUpForm({ onClose }) {
         </div>
       </form>
     </div>
-  )
+  );
 }
-

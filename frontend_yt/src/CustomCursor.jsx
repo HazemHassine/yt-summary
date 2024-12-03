@@ -42,7 +42,7 @@ const CustomCursor = () => {
   return (
     <>
       <div
-        className="fixed pointer-events-none z-50 rounded-full mix-blend-difference"
+        className="fixed pointer-events-none z-[5000] rounded-full mix-blend-difference"
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
@@ -54,7 +54,7 @@ const CustomCursor = () => {
         }}
       ></div>
       <div
-        className="fixed pointer-events-none z-50 rounded-full border-2 border-white mix-blend-difference"
+        className="fixed pointer-events-none z-[5000] rounded-full border-2 border-white mix-blend-difference"
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,

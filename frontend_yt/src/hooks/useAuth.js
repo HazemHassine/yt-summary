@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut as firebaseSignOut, onAuthStateChanged } from 'firebase/auth'
-import { app } from '../lib/firebase'
+import { useState, useEffect } from 'react';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut as firebaseSignOut, onAuthStateChanged } from 'firebase/auth';
+import { app } from '../lib/firebase';
 
 export function useAuth() {
   const [user, setUser] = useState(null)
@@ -18,7 +18,7 @@ export function useAuth() {
 
   const signUp = async (email, password) => {
     try {
-      await createUserWithEmailAndPassword(auth, email, password)
+      return await createUserWithEmailAndPassword(auth, email, password)
     } catch (error) {
       console.error('Error signing up', error)
       throw error
