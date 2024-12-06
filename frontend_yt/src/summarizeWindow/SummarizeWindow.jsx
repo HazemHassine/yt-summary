@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { CheckCheckIcon, X } from "lucide-react";
 
+
+
 export default function SummarizeWindow({ onClose }) {
   const [videoUrl, setVideoUrl] = useState("");
   const [isSummarizing, setIsSummarizing] = useState(false);
-  const [summaryFilePath, setSummaryFilePath] = useState(null);
   const [error, setError] = useState("");
   const [validUrl, setValidUrl] = useState(false);
   function isValidYouTubeUrl(url) {
@@ -18,7 +19,6 @@ export default function SummarizeWindow({ onClose }) {
   const handleSummarize = async () => {
     setIsSummarizing(true);
     setError("");
-    setSummaryFilePath(null);
     try {
       const response = await fetch("youtube/process", {
         method: "POST",
@@ -33,7 +33,6 @@ export default function SummarizeWindow({ onClose }) {
       }
 
       const data = await response.json();
-      setSummaryFilePath("db/"+ data.filePath.split("/").pop()); // File path from server response
     } catch (err) {
       console.log(err);
       setError(
@@ -88,7 +87,7 @@ export default function SummarizeWindow({ onClose }) {
           {isSummarizing ? "Summarizing..." : "Summarize"}
         </button>
         {error && <p className="text-red-500 mb-4">{error}</p>}
-        {summaryFilePath && (
+        {
           <div className="mb-4">
             <p className="font-semibold">Summary ready!</p>
             <a
@@ -97,10 +96,10 @@ export default function SummarizeWindow({ onClose }) {
               rel="noopener noreferrer"
               className="text-blue-500 underline"
             >
-              Open Summary
+              Go to article
             </a>
           </div>
-        )}
+        }
       </div>
     </div>
   );

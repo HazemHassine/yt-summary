@@ -36,16 +36,20 @@ export default function App() {
         <div className="wave-pattern"></div>
         <Navbar onSummarizeClick={toggleSummarizeWindow} onProfileClick={handleProfileClick} />
         {summarizeWindow && <SummarizeWindow onClose={() => { setSummarizeWindow(false); handleReload() }} />}
-
+  
         {
-        showProfile ? (
-          <Profile onClose={() => setShowProfile(false)} />
-        ) : 
-        <CardsSection setShowProfile={setShowProfile} />
+          showProfile ? (
+            <Profile onClose={() => setShowProfile(false)} />
+          ) : (
+            <CardsSection setShowProfile={setShowProfile} />
+          )
         }
-
+  
+        {/* Ensure the footer is pushed to the bottom */}
+        <div className="flex-grow" /> {/* This makes sure the main content takes up all available space */}
+  
         <Footer />
       </div>
     </AuthProvider>
-  )
+  );
 }

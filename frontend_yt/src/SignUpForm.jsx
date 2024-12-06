@@ -35,6 +35,7 @@ export default function SignUpForm({ onClose }) {
         content: "#TODO add this later",
         description:
           "This is where a short description of the article will be seen. lorem du fact de la description of the article will be shown",
+        url : "https://www.youtube.com/"
       };
 
       // Create a document with articleId within the "articles" collection
